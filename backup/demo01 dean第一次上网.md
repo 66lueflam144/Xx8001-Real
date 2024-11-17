@@ -1,8 +1,7 @@
-
 # demo_01 
 >一个简陋并且需要持续更新的java漏洞小网站test
 
-- demo01  
+# demo01  
     
     - 预期设想  
         
@@ -88,13 +87,12 @@
                 
                 - 最后还有点关于数据库的交互，具体的在后面MYSQL的章节说。、  
                     
-            
-            - 具体分层：  
+# 具体分层：  
                 
                 - 都是依照目前的完成品来写的，中间迭代了两次吧，但基本结构都是一样的  
                     
                 
-                - Config  
+## Config  
                     
                     - 简介：写了一个用于解决在部署初始化的时候遇到的Cannot resolve reference to bean 'jpaSharedEM_entityManagerFactory' while setting bean property 'entityManager' 问题，一般除了这种功能还能写点其他的其他config设置  
                         
@@ -159,7 +157,7 @@
                                     - 在某一次修改代码中我怀疑过是不是因为hibernate和JPA的问题（需要去具体了解这两个之间的关系，现在这个只是一个不靠谱的猜测，在后续中也可以看出来两者一般情况不仅不会冲突，还是协作者），因为之前非常混乱的把JDBC和JPA一起用来处理数据库。  
                                         
                 
-                - Controller  
+## Controller  
                     
                     - 简介：  
                         - 主要进行路径映射与功能匹配，基本的检测也可以在这里写，比如谁登录了，谁注册了  
@@ -249,7 +247,7 @@
                             - 为什么用String，我的理解是，最后回到的return "admin/user-profile";是一串字符串。  
                                 
                         
-                        - ResponseEntity  
+## ResponseEntity  
                             
                             - 官方文档：[https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-methods/responseentity.html#page-title](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-methods/responseentity.html#page-title)  
                                 
@@ -329,7 +327,7 @@
                         - 不过为什么IDE本地运行可以，远程服务器就不可以？  
                             
                 
-                - Db  
+## Db  
                     
                     - 这一层按理说是用来写点关于数据库规范的，但我只用来写了一个初始化创建管理员。  
                         
@@ -387,7 +385,7 @@
                         - JPA会将值作为非sql语句处理。so no。![](https://api2.mubu.com/v3/document_image/30816267_00e3e541-7356-4ca8-f0ed-cf93ecf61ef0.png)  
                             
                 
-                - Service  
+## Service  
                     - 两个service提供具体的服务实现方法。  
                         
                         - PostService  
@@ -412,7 +410,7 @@
                         - 就放了一个默认的avatar图片![](https://api2.mubu.com/v3/document_image/30816267_6b92e2bc-bed1-4134-a798-8579942dc4dd.jpeg)  
                             
                     
-                    - templates  
+## templates  
                         
                         - 使用thymeleaf编写前端  
                             
@@ -438,5 +436,5 @@
                         - 也没什么好说的目前因为前端是找ai写的。  
                             
         
-        - Thymeleaf  
+### Thymeleaf  
             - [https://docs.spring.io/spring-framework/reference/web/webmvc-view/mvc-thymeleaf.html](https://docs.spring.io/spring-framework/reference/web/webmvc-view/mvc-thymeleaf.html)
