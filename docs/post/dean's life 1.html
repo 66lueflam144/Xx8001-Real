@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    <script src='https://blog.meekdai.com/Gmeek/plugins/GmeekBSZ.js'></script>
+    <link rel="icon" href="https://api.iconify.design/line-md:cloud-alt-print-loop.svg"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="
+# demo01奥德赛
+>用幕布写的，所以导出来效果这样。">
+<meta property="og:title" content="dean's life 1">
+<meta property="og:description" content="
+# demo01奥德赛
+>用幕布写的，所以导出来效果这样。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://66lueflam144.github.io/Xx8001-Real/post/dean%27s%20life%201.html">
+<meta property="og:image" content="https://api.iconify.design/line-md:cloud-alt-print-loop.svg">
+<title>dean's life 1</title>
+
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">dean's life 1</h1>
+<div class="title-right">
+    <a href="https://66lueflam144.github.io/Xx8001-Real" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/66lueflam144/Xx8001-Real/issues/4" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><h1>demo01奥德赛</h1>
+<blockquote>
+<p>用幕布写的，所以导出来效果这样。</p>
+</blockquote>
+<ul>
+<li>
+<p>demo01</p>
+<ul>
+<li>
+<p>预期设想</p>
+<ul>
+<li>
+<p>理由：</p>
+<ul>
+<li>
+<p>理由一：有点久远了所以有点想不起来为什么要写这个网站了，好像是写完我那个简单的rss reader之后突发奇想。可能smarter baby听多了，</p>
+</li>
+<li>
+<p>理由二：觉得如果自己写一个，就能更好的理解一个项目是什么样的结构，哪里会出现什么样的问题，以后看别人的源码也能稍微可以不那么苦恼一些</p>
+</li>
+<li>
+<p>理由三：最开始是研究pdf的，发现找不到可以实现我预期效果的直接通过浏览器就能发动js的，就转向，如果诱导人下载pdf点击伪装好的连接触发点什么，毕竟现在的url都可以美化，直接是看不出来链接内容的，然后点击链接的人大多数不会在意显示的链接是什么，于是一个钓鱼网站的想法出现。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>预期：</p>
+<ul>
+<li>
+<p>预期一：xss，这个好写也好防</p>
+</li>
+<li>
+<p>预期二：toxic pdf or other docs，通过下载或者点击</p>
+</li>
+<li>
+<p>预期三：sql注入语句</p>
+</li>
+<li>
+<p>预期四：目录遍历</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>具体实践</p>
+<ul>
+<li>
+<p>前置条件</p>
+<ul>
+<li>
+<p>简单的学习了一些java相关</p>
+<ul>
+<li>
+<p>spring</p>
+</li>
+<li>
+<p>spring boot</p>
+</li>
+<li>
+<p>maven archetype</p>
+</li>
+<li>
+<p>tomcat</p>
+</li>
+<li>
+<p>安卓开发课程用的是java——想学kotlin但觉得还是深入java一些比较好</p>
+</li>
+</ul>
+</li>
+<li>
+<p>AI</p>
+<ul>
+<li>
+<p>chatgpt</p>
+</li>
+<li>
+<p>cody chat</p>
+</li>
+<li>
+<p>豆包</p>
+</li>
+<li>
+<p>听了两次关于prompt的例会</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Spring Boot</p>
+<ul>
+<li>
+<p>理由：为了省去对tomcat的配置</p>
+<ul>
+<li>之前最开始接触java projects的时候，用的就是maven archetype，需要手动配置tomcat作为本地服务器、打包war进行测试</li>
+</ul>
+</li>
+<li>
+<p>官方网址：<a href="https://spring.io/projects/spring-boot" rel="nofollow">https://spring.io/projects/spring-boot</a></p>
+</li>
+<li>
+<p>版本：3.3.5</p>
+</li>
+<li>
+<p>使用的经典的MVC架构</p>
+<ul>
+<li>
+<p>引用一下<a href="https://pdai.tech/md/spring/spring-x-framework-springmvc.html#%E4%BB%80%E4%B9%88%E6%98%AFmvc" rel="nofollow">https://pdai.tech/md/spring/spring-x-framework-springmvc.html#%E4%BB%80%E4%B9%88%E6%98%AFmvc</a>这个教程里面的图片<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/c054df13b57f79ab9b2284e8791bce794e01efc0904fa2b158f1f9171fec8691/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f34316664346335362d656334322d346333312d633236372d6437316565306465346662642e706e67"><img src="https://camo.githubusercontent.com/c054df13b57f79ab9b2284e8791bce794e01efc0904fa2b158f1f9171fec8691/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f34316664346335362d656334322d346333312d633236372d6437316565306465346662642e706e67" alt="" data-canonical-src="https://api2.mubu.com/v3/document_image/30816267_41fd4c56-ec42-4c31-c267-d71ee0de4fbd.png" style="max-width: 100%;"></a></p>
+</li>
+<li>
+<p>也还涉及到一代IOC（但是不多，但这也就是我最开始部署失败的原因之一，没有了解清楚IOC和MVC）</p>
+</li>
+<li>
+<p>最后还有点关于数据库的交互，具体的在后面MYSQL的章节说。、</p>
+</li>
+</ul>
+</li>
+<li>
+<p>具体分层：</p>
+<ul>
+<li>
+<p>都是依照目前的完成品来写的，中间迭代了两次吧，但基本结构都是一样的</p>
+</li>
+<li>
+<p>Config</p>
+<ul>
+<li>
+<p>简介：写了一个用于解决在部署初始化的时候遇到的Cannot resolve reference to bean 'jpaSharedEM_entityManagerFactory' while setting bean property 'entityManager' 问题，一般除了这种功能还能写点其他的其他config设置</p>
+<ul>
+<li>
+<p>entitymangerfactory没有被找到，所以进一步的entitymanager也无法被设置</p>
+</li>
+<li>
+<p>关于什么是entityManager：<a href="https://jakarta.ee/specifications/persistence/2.2/apidocs/javax/persistence/entitymanager" rel="nofollow">https://jakarta.ee/specifications/persistence/2.2/apidocs/javax/persistence/entitymanager</a></p>
+<ul>
+<li>
+<p>简单说一下就是，来自Jakarta的一个javax.persistence的一个接口。</p>
+</li>
+<li>
+<p>Interface used to interact with the persistence context</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>类：JpaConfig</p>
+<ul>
+<li>
+<p>其实看内容就是把application.properties的内容翻译成java代码</p>
+</li>
+<li>
+<p>包含了datasource()，entityManagerFactory()，transactionManager()</p>
+<ul>
+<li>
+<p>datasource()：数据库的连接配置</p>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/77dcc9d839e182fae44d3ab68c58cacae1f7a2d999e88f6554dcc79d6fd19fe6/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f33313633356236302d646339382d346236362d666230612d3837633965663766333439642e706e67"><img src="https://camo.githubusercontent.com/77dcc9d839e182fae44d3ab68c58cacae1f7a2d999e88f6554dcc79d6fd19fe6/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f33313633356236302d646339382d346236362d666230612d3837633965663766333439642e706e67" alt="" data-canonical-src="https://api2.mubu.com/v3/document_image/30816267_31635b60-dc98-4b66-fb0a-87c9ef7f349d.png" style="max-width: 100%;"></a></p>
+</li>
+<li>
+<p>和图上所示一样。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>entityManagerFactory()：entity扫描目录和hibernate的设置，用来对数据与数据库的交互进行设置</p>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/974729710b1c131dea91f7173e1108eb95d41dd58841e37f26e4c830bfa2ee7f/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f66373463643135652d666537332d346365662d643363302d3033363930373063623133652e706e67"><img src="https://camo.githubusercontent.com/974729710b1c131dea91f7173e1108eb95d41dd58841e37f26e4c830bfa2ee7f/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f66373463643135652d666537332d346365662d643363302d3033363930373063623133652e706e67" alt="" data-canonical-src="https://api2.mubu.com/v3/document_image/30816267_f74cd15e-fe73-4cef-d3c0-0369070cb13e.png" style="max-width: 100%;"></a></p>
+</li>
+<li>
+<p>创建了EntityManagerFactory实例</p>
+</li>
+<li>
+<p>配置数据源</p>
+</li>
+<li>
+<p>指定实体类的目录</p>
+</li>
+<li>
+<p>配置JPA适配器——这里选择的是Hibernate</p>
+</li>
+</ul>
+</li>
+<li>
+<p>transactionManager()：设置了需要使用的entitymanager是谁，后续spring boot会自动将其作为entitymanager进行管理。</p>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/91851e4fc4c53862701d153009244ee3ae00e5d91dc0e0fb3b63e10c54a3e839/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f62303434666236312d616432612d346132662d613135332d3133353562336261666437622e706e67"><img src="https://camo.githubusercontent.com/91851e4fc4c53862701d153009244ee3ae00e5d91dc0e0fb3b63e10c54a3e839/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f62303434666236312d616432612d346132662d613135332d3133353562336261666437622e706e67" alt="" data-canonical-src="https://api2.mubu.com/v3/document_image/30816267_b044fb61-ad2a-4a2f-a153-1355b3bafd7b.png" style="max-width: 100%;"></a></p>
+</li>
+<li>
+<p>暂时没什么想说的。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>反思：</p>
+<ul>
+<li>不知道是不是因为对spring了解甚少，所以对于这些跨API的交互不了解导致的混乱需要用这个类来处理，
+<ul>
+<li>
+<p>在看spring framework中关于transaction的部分<a href="https://docs.spring.io/spring-framework/reference/data-access/transaction.html" rel="nofollow">https://docs.spring.io/spring-framework/reference/data-access/transaction.html</a>，里面提到了第一句</p>
+<ul>
+<li>
+<p>A consistent programming model access different transaction APIs, such as Java Transaction API(JTA), JDBC. Hibernate, and the Java Persistence API(JPA)</p>
+</li>
+<li>
+<p>在某一次修改代码中我怀疑过是不是因为hibernate和JPA的问题（需要去具体了解这两个之间的关系，现在这个只是一个不靠谱的猜测，在后续中也可以看出来两者一般情况不仅不会冲突，还是协作者），因为之前非常混乱的把JDBC和JPA一起用来处理数据库。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Controller</p>
+<ul>
+<li>
+<p>简介：</p>
+<ul>
+<li>主要进行路径映射与功能匹配，基本的检测也可以在这里写，比如谁登录了，谁注册了</li>
+</ul>
+</li>
+<li>
+<p>mapping</p>
+<ul>
+<li>
+<p>这个是一个让我很苦恼过的东西，不过到结束了也没有去认真阅读过文档，有点Get it like boom boom boom</p>
+</li>
+<li>
+<p>在本地测试，创建private post with attachments是可以的，但疑似远程服务器上不可以，也存在可能是登录超时。</p>
+</li>
+<li>
+<p>官方文档：<a href="https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-requestmapping.html" rel="nofollow">https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-requestmapping.html</a></p>
+<ul>
+<li>
+<p>里面写得很清晰</p>
+</li>
+<li>
+<p>主要的一个疑惑是"/projects/{project}/versions"这样的mapping的意思，查询之后得到：</p>
+<ul>
+<li>
+<p>处理HTTP请求</p>
+<ul>
+<li>
+<p>用户GET该路径进行请求</p>
+</li>
+<li>
+<p>设置了对应mapping的controller方法响应并进行处理</p>
+</li>
+</ul>
+</li>
+<li>
+<p>疑惑的来源是在return 'redirect:user/profile这样的重定向跳转中，需要跳转到存在的资源。不过估计也可以编写代码成重定向到其他请求mapping的。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>在Suffix Match and RFD处还有个<a title="CVE-2015-5211" data-hovercard-type="advisory" data-hovercard-url="/advisories/GHSA-pgf9-h69p-pcgf/hovercard" href="https://github.com/advisories/GHSA-pgf9-h69p-pcgf">CVE-2015-5211</a></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Model &amp; String</p>
+<ul>
+<li>
+<p>简介：因为我用的是Model，在查看别人的项目的时候，看到用的是ResponseEntity</p>
+</li>
+<li>
+<p>Model：</p>
+<ul>
+<li>
+<p>官方文档：<a href="https://docs.spring.io/spring-framework/reference/web/webflux/controller/ann-modelattrib-methods.html" rel="nofollow">https://docs.spring.io/spring-framework/reference/web/webflux/controller/ann-modelattrib-methods.html</a></p>
+<ul>
+<li>比较涉及到的是On a <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/RequestMapping/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/RequestMapping">@RequestMapping</a> method to mark its return value as a model attribute</li>
+</ul>
+</li>
+<li>
+<p>举例一下：</p>
+<ul>
+<li>
+<p>这个是后端：<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/cf065a12e752d4406fe9c1018c627107312ffbc147a8b3dbd9187b6d55e6cf35/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f34626239626238622d383133642d343839322d396264372d3437396531303562656161342e706e67"><img src="https://camo.githubusercontent.com/cf065a12e752d4406fe9c1018c627107312ffbc147a8b3dbd9187b6d55e6cf35/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f34626239626238622d383133642d343839322d396264372d3437396531303562656161342e706e67" alt="" data-canonical-src="https://api2.mubu.com/v3/document_image/30816267_4bb9bb8b-813d-4892-9bd7-479e105beaa4.png" style="max-width: 100%;"></a></p>
+<ul>
+<li>
+<p>后端为model返回的属性有：</p>
+
+</li><li>
+<p>user：model.addAttribute("user", user);</p>
+</li>
+<li>
+<p>posts：model.addAttribute("posts", postService.findByUser(user));</p>
+</li>
+
+
+</ul>
+</li>
+<li>
+<p>这个是使用thymeleaf编写的前端<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/956247578ea8816649ac0232c8aa304c10c8d1c9a6154a4d6f000f6ce0f71835/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f30653731323136662d653563372d343437642d623835612d3033623336336438316561322e706e67"><img src="https://camo.githubusercontent.com/956247578ea8816649ac0232c8aa304c10c8d1c9a6154a4d6f000f6ce0f71835/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f30653731323136662d653563372d343437642d623835612d3033623336336438316561322e706e67" alt="" data-canonical-src="https://api2.mubu.com/v3/document_image/30816267_0e71216f-e5c7-447d-b85a-03b363d81ea2.png" style="max-width: 100%;"></a></p>
+</li>
+<li>
+<p>接收的</p>
+<ul>
+<li>
+<p>user</p>
+
+</li><li>
+<p>username</p>
+</li>
+<li>
+<p>email</p>
+</li>
+<li>
+<p>avatarPath</p>
+</li>
+
+
+<li>
+<p>posts</p>
+
+</li><li>
+<p>id</p>
+</li>
+<li>
+<p>contents</p>
+</li>
+<li>
+<p>publicFlag</p>
+</li>
+
+
+</ul>
+</li>
+<li>
+<p>可以看到就是这样将数据进行传递</p>
+</li>
+</ul>
+</li>
+<li>
+<p>为什么用String，我的理解是，最后回到的return "admin/user-profile";是一串字符串。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>ResponseEntity</p>
+<ul>
+<li>
+<p>官方文档：<a href="https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-methods/responseentity.html#page-title" rel="nofollow">https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-methods/responseentity.html#page-title</a></p>
+<ul>
+<li>
+<p>是<a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/responsebody/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/responsebody">@responsebody</a>的进阶版，feature是status和headers</p>
+<ul>
+<li>
+<p>response status</p>
+</li>
+<li>
+<p>headers</p>
+</li>
+<li>
+<p>body</p>
+</li>
+</ul>
+</li>
+<li>
+<p>一般接收JSON这一类的数据进行处理，在返回结果的时候顺带返回httpstatus。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>举例</p>
+<ul>
+<li><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/5bf583479aac59001d06066db4d4bd7edfb0157436b066a7f573c1cfd1efe37a/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f38326430636636342d643332652d343962312d396161622d3137636432663930323861322e706e67"><img src="https://camo.githubusercontent.com/5bf583479aac59001d06066db4d4bd7edfb0157436b066a7f573c1cfd1efe37a/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f38326430636636342d643332652d343962312d396161622d3137636432663930323861322e706e67" alt="" data-canonical-src="https://api2.mubu.com/v3/document_image/30816267_82d0cf64-d32e-49b1-9aab-17cd2f9028a2.png" style="max-width: 100%;"></a></li>
+</ul>
+</li>
+<li>
+<p>RESTful API环境，不过我不需要，因为用这个我还要写转换数据的函数。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>4个controller</p>
+<ul>
+<li>
+<p>关于什么是controller的官方文档：<a href="https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller.html" rel="nofollow">https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller.html</a></p>
+</li>
+<li>
+<p>AdminController</p>
+</li>
+<li>
+<p>AuthController</p>
+</li>
+<li>
+<p>PostController</p>
+</li>
+<li>
+<p>UserController</p>
+</li>
+<li>
+<p>四个controller大同小异，没有值得说的。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>关于@Autiwired的正确配置：</p>
+<ul>
+<li>
+<p>Dependency Injection：<a href="https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-collaborators.html" rel="nofollow">https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-collaborators.html</a></p>
+<ul>
+<li>
+<p>Constructot-based</p>
+</li>
+<li>
+<p>Setter-based</p>
+</li>
+<li>
+<p>Setter injection versus constructor injection and the use of required:<a href="https://spring.io/blog/2007/07/11/setter-injection-versus-constructor-injection-and-the-use-of-required" rel="nofollow">https://spring.io/blog/2007/07/11/setter-injection-versus-constructor-injection-and-the-use-of-required</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>两者都可以，就是使用setter injection需要确保：The Spring team generally advocates constructor injection, as it lets you implement application components as immutable objects and ensures that required dependencies are not null.而这个也恰恰是我所遇到的问题。</p>
+<ul>
+<li>
+<p>The Spring container validates the configuration of each bean as the container is created. However, the bean properties themselves are not set until the bean is actually created</p>
+</li>
+<li>
+<p>所以如果没有设置好，那么使用setter injection就会遇到我遇到的问题</p>
+</li>
+<li>
+<p>但是关于constructor injection，会有BeanCurrentlyInCreationExpection——循环的蛇。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>电脑可以连接两个蓝牙？</p>
+</li>
+</ul>
+</li>
+<li>
+<p>有趣：</p>
+<ul>
+<li>
+<p>最开始每一个被引用的service都是用<a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/Autowired/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Autowired">@Autowired</a>进行配置，但是没有注意到IDE在说not recommend，然后在部署的时候就报错了</p>
+</li>
+<li>
+<p>不过为什么IDE本地运行可以，远程服务器就不可以？</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Db</p>
+<ul>
+<li>
+<p>这一层按理说是用来写点关于数据库规范的，但我只用来写了一个初始化创建管理员。</p>
+</li>
+<li>
+<p>写得很简单，通过sql或者目录遍历或者文件下载会得到的。不过说的都是预期，具体看我的实现逻辑是什么了。<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/2d94fe7aa6984ef6fa8afe791d6cb9b8a44b1a72ebafc18ccae9647c0e41c079/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f37323663653562332d333331632d346435332d623762332d3139356162333762353130322e706e67"><img src="https://camo.githubusercontent.com/2d94fe7aa6984ef6fa8afe791d6cb9b8a44b1a72ebafc18ccae9647c0e41c079/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f37323663653562332d333331632d346435332d623762332d3139356162333762353130322e706e67" alt="" data-canonical-src="https://api2.mubu.com/v3/document_image/30816267_726ce5b3-331c-4d53-b7b3-195ab37b5102.png" style="max-width: 100%;"></a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Entity</p>
+<ul>
+<li>
+<p>实体类</p>
+</li>
+<li>
+<p>比起之前比较值得说的是，关于与数据库的交互所用到几个annotation：</p>
+<ul>
+<li>
+<p>文档：<a href="https://jakarta.ee/specifications/persistence/2.2/apidocs/javax/persistence/package-summary" rel="nofollow">https://jakarta.ee/specifications/persistence/2.2/apidocs/javax/persistence/package-summary</a>，基本都找得到</p>
+</li>
+<li>
+<p><a class="user-mention notranslate" data-hovercard-type="organization" data-hovercard-url="/orgs/table/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/table">@table</a>(name = "xxx")</p>
+</li>
+<li>
+<p><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/id/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/id">@id</a></p>
+</li>
+<li>
+<p>@GeneratedValue(strategy = xxxxx)</p>
+</li>
+<li>
+<p>ManyToOne、OneToMany:<a href="https://jakarta.ee/specifications/persistence/2.2/apidocs/javax/persistence/manytoone" rel="nofollow">https://jakarta.ee/specifications/persistence/2.2/apidocs/javax/persistence/manytoone</a></p>
+</li>
+<li>
+<p>JoinColumn(name = xxx)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>还有就是在设置关于post的可见性的private boolean publicFLag;，最开始用isPublic，在repository里面还搞出一些混乱，不过有点难以追溯究竟是为什么，可能是public和里面有什么冲突了。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Repository</p>
+<ul>
+<li>
+<p>这里我需要搞清楚DAO和Repository的区别与联系。</p>
+<ul>
+<li>
+<p>Dao，data access object：更关注数据库层面的事务，通常是直接与数据库表的 CRUD 操作相对应，数据的返回形式可能更偏向于数据库记录的形式</p>
+</li>
+<li>
+<p>repository：侧重于领域对象的持久化生命周期管理。它会确保领域对象在内存中的状态与数据库中的状态保持一致。返回的是领域对象本身，而不是数据库记录的原始形式。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>整体也是没有什么好说的，记得这是个与数据库进行交互的interface，除非是特殊的需要写的方法，其他的都可以自动完成。在里面进行创建方法的时候，就会发现会有很多类似sql的拼接名字，不过是基于实体类的定义而来的。</p>
+</li>
+<li>
+<p>SQL Injection：</p>
+<ul>
+<li>
+<p>关于like语句的注入攻击<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/d1ec6c3b8f6f1ec872c0b94a77568d8ae549030c89f859cf2ae63d4708d7c30e/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f65643332313238662d393532322d343839302d616466322d3737396534316135666134642e706e67"><img src="https://camo.githubusercontent.com/d1ec6c3b8f6f1ec872c0b94a77568d8ae549030c89f859cf2ae63d4708d7c30e/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f65643332313238662d393532322d343839302d616466322d3737396534316135666134642e706e67" alt="" data-canonical-src="https://api2.mubu.com/v3/document_image/30816267_ed32128f-9522-4890-adf2-779e41a5fa4d.png" style="max-width: 100%;"></a></p>
+<ul>
+<li>注入语句example：%'; DROP TABLE products; --</li>
+</ul>
+</li>
+<li>
+<p>JPA会将值作为非sql语句处理。so no。<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/2f105cd37c60c9c1b622852ce9232c4001d34c5e3ce9f44f25b4f96d2ce5ef01/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f30306533653534312d373335362d346361382d663065642d6366393365636636316566302e706e67"><img src="https://camo.githubusercontent.com/2f105cd37c60c9c1b622852ce9232c4001d34c5e3ce9f44f25b4f96d2ce5ef01/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f30306533653534312d373335362d346361382d663065642d6366393365636636316566302e706e67" alt="" data-canonical-src="https://api2.mubu.com/v3/document_image/30816267_00e3e541-7356-4ca8-f0ed-cf93ecf61ef0.png" style="max-width: 100%;"></a></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Service</p>
+<ul>
+<li>
+<p>两个service提供具体的服务实现方法。</p>
+<ul>
+<li>
+<p>PostService</p>
+<ul>
+<li>
+<p>上传附件<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/73854fa3fec1341c973eea34148dcebfea1225bc24c6c67af5580a816cb21956/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f63346635373136332d633138312d346131622d393866612d3566363263353836323134382e706e67"><img src="https://camo.githubusercontent.com/73854fa3fec1341c973eea34148dcebfea1225bc24c6c67af5580a816cb21956/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f63346635373136332d633138312d346131622d393866612d3566363263353836323134382e706e67" alt="" data-canonical-src="https://api2.mubu.com/v3/document_image/30816267_c4f57163-c181-4a1b-98fa-5f62c5862148.png" style="max-width: 100%;"></a></p>
+</li>
+<li>
+<p>按理说，下载附件也应该在service里面，但是我目前是写在了controller里面</p>
+<ul>
+<li>下载附件<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/3548c15e30202be653fa1a9c3823da14e21e811b524d126fac4c1fa617719a11/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f32313639643466372d346364622d343434382d626133342d3764643135343039633161312e706e67"><img src="https://camo.githubusercontent.com/3548c15e30202be653fa1a9c3823da14e21e811b524d126fac4c1fa617719a11/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f32313639643466372d346364622d343434382d626133342d3764643135343039633161312e706e67" alt="" data-canonical-src="https://api2.mubu.com/v3/document_image/30816267_2169d4f7-4cdb-4448-ba34-7dd15409c1a1.png" style="max-width: 100%;"></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>UserService</p>
+<ul>
+<li>上传头像并保存其头像<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/fb613a86b8a5db301b40b9316b044b60264f2cc0602f28c6062b8aa9cdbfeb5f/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f64656663366431332d353166372d343964642d636366312d6335653837613063656266322e706e67"><img src="https://camo.githubusercontent.com/fb613a86b8a5db301b40b9316b044b60264f2cc0602f28c6062b8aa9cdbfeb5f/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f64656663366431332d353166372d343964642d636366312d6335653837613063656266322e706e67" alt="" data-canonical-src="https://api2.mubu.com/v3/document_image/30816267_defc6d13-51f7-49dd-ccf1-c5e87a0cebf2.png" style="max-width: 100%;"></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Resources</p>
+<ul>
+<li>
+<p>存放资源的。</p>
+</li>
+<li>
+<p>static</p>
+<ul>
+<li>就放了一个默认的avatar图片<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/816270424255fdf7dac910cc94df6ec606927e05b0cdd63d99f1d1edadb1365c/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f36623932653262632d626564312d343133342d613739382d3835373939343264633464642e6a706567"><img src="https://camo.githubusercontent.com/816270424255fdf7dac910cc94df6ec606927e05b0cdd63d99f1d1edadb1365c/68747470733a2f2f617069322e6d7562752e636f6d2f76332f646f63756d656e745f696d6167652f33303831363236375f36623932653262632d626564312d343133342d613739382d3835373939343264633464642e6a706567" alt="" data-canonical-src="https://api2.mubu.com/v3/document_image/30816267_6b92e2bc-bed1-4134-a798-8579942dc4dd.jpeg" style="max-width: 100%;"></a></li>
+</ul>
+</li>
+<li>
+<p>templates</p>
+<ul>
+<li>
+<p>使用thymeleaf编写前端</p>
+</li>
+<li>
+<p>再写下去我要失去灵魂与生命了。</p>
+</li>
+<li>
+<p>分层</p>
+<ul>
+<li>
+<p>admin</p>
+</li>
+<li>
+<p>auth</p>
+</li>
+<li>
+<p>post</p>
+<ul>
+<li>public</li>
+</ul>
+</li>
+<li>
+<p>user</p>
+</li>
+</ul>
+</li>
+<li>
+<p>也没什么好说的目前因为前端是找ai写的。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Thymeleaf</p>
+<ul>
+<li><a href="https://docs.spring.io/spring-framework/reference/web/webmvc-view/mvc-thymeleaf.html" rel="nofollow">https://docs.spring.io/spring-framework/reference/web/webmvc-view/mvc-thymeleaf.html</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://66lueflam144.github.io/Xx8001-Real">Xx8001-game_girl</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if(""!=""){
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","66lueflam144/Xx8001-Real");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+
+
+</script>
+<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekTOC.js'></script><script src='https://blog.meekdai.com/Gmeek/plugins/lightbox.js'></script>
+
+</html>
